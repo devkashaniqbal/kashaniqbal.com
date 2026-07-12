@@ -1,26 +1,326 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: #111111;
+  --color-ink-soft: #666666;
+  --color-hairline: #ececec;
+  --color-paper: #ffffff;
+
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+
+  --radius-card: 36px;
+  --radius-nav: 18px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ————— film grain (inline SVG turbulence, no assets) ————— */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27180%27%20height%3D%27180%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.72%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27180%27%20height%3D%27180%27%20filter%3D%27url(%23n)%27%2F%3E%3C%2Fsvg%3E");
+  background-size: 180px 180px;
+}
+
+/* ————— slow aurora drift (transform-only, GPU composited) ————— */
+@keyframes drift-a {
+  from {
+    transform: translate3d(-5%, -3%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, 5%, 0) scale(1.14);
+  }
+}
+@keyframes drift-b {
+  from {
+    transform: translate3d(4%, 6%, 0) scale(1.08);
+  }
+  to {
+    transform: translate3d(-6%, -4%, 0) scale(0.98);
+  }
+}
+@keyframes drift-c {
+  from {
+    transform: translate3d(-2%, 4%, 0) scale(1.05) rotate(4deg);
+  }
+  to {
+    transform: translate3d(3%, -5%, 0) scale(1.16) rotate(-3deg);
+  }
+}
+.aurora-a {
+  animation: drift-a 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.aurora-b {
+  animation: drift-b 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.aurora-c {
+  animation: drift-c 50s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* ————— light rays, slowly wheeling from the top corner ————— */
+@keyframes rays-wheel {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+.rays {
+  background: conic-gradient(
+    from 195deg at 82% -10%,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.85) 4deg,
+    transparent 9deg,
+    transparent 14deg,
+    rgba(244, 243, 247, 0.7) 18deg,
+    transparent 24deg,
+    transparent 30deg,
+    rgba(255, 255, 255, 0.6) 34deg,
+    transparent 41deg
+  );
+  animation: rays-wheel 26s ease-in-out infinite alternate;
+  transform-origin: 82% -10%;
+  will-change: transform;
+}
+
+/* ————— brushed-metal sheen sweeping across "Scale." ————— */
+@keyframes sheen-sweep {
+  0%,
+  18% {
+    background-position: 130% center;
+  }
+  55%,
+  100% {
+    background-position: -40% center;
+  }
+}
+.metal-text {
+  background-image: linear-gradient(
+    108deg,
+    #4f46e5 0%,
+    #7c6af0 22%,
+    #3d34c9 40%,
+    #a5b8f5 50%,
+    #4f46e5 62%,
+    #8b7cf2 80%,
+    #4338ca 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen-sweep 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* metal text tuned for the dark act */
+.metal-text-dark {
+  background-image: linear-gradient(
+    108deg,
+    #a5b4fc 0%,
+    #e0e7ff 25%,
+    #8fd0f5 42%,
+    #ffffff 52%,
+    #a78bfa 64%,
+    #c7d2fe 82%,
+    #93c5fd 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen-sweep 11s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* violet gradient for manifesto highlight words */
+.violet-text {
+  background-image: linear-gradient(100deg, #7c6af0 0%, #4f46e5 60%, #38bdf8 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ————— dust motes ————— */
+@keyframes mote {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: var(--mote-peak, 0.5);
+  }
+  50% {
+    transform: translate3d(6px, -22px, 0);
+  }
+  75% {
+    opacity: calc(var(--mote-peak, 0.5) * 0.5);
+  }
+}
+.mote {
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(196, 186, 250, 0.45) 55%,
+    transparent 75%
+  );
+  box-shadow: 0 0 6px rgba(167, 155, 245, 0.55);
+  animation: mote var(--mote-dur, 18s) ease-in-out infinite;
+  animation-delay: var(--mote-delay, 0s);
+  will-change: transform, opacity;
+}
+
+/* ————— scroll cue hairline ————— */
+@keyframes cue-drop {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+.cue-line::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, #c9ccd4, transparent);
+  animation: cue-drop 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* ————— bento proof grid ————— */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+.flow-line {
+  stroke-dasharray: 4 10;
+  animation: flow-dash 4.5s linear infinite;
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(94, 137, 158, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(94, 137, 158, 0);
+  }
+}
+.node-pulse {
+  animation: node-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes toast-pop {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+  62%,
+  88% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  96%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+}
+.toast-pop {
+  animation: toast-pop 6.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret,
+  .flow-line,
+  .node-pulse,
+  .toast-pop {
+    animation: none;
+  }
+  .toast-pop {
+    opacity: 1;
+  }
+}
+
+/* ————— /course funnel: ticker marquee ————— */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 36s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-a,
+  .aurora-b,
+  .aurora-c,
+  .rays,
+  .metal-text,
+  .metal-text-dark,
+  .mote,
+  .cue-line::after {
+    animation: none;
+  }
 }
