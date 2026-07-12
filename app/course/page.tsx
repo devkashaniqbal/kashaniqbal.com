@@ -22,30 +22,90 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const COURSE_DESCRIPTION =
+  "Step-by-step training to build Shopify stores, land freelance clients, and sell digital products. 14 hours, 62 lectures, lifetime access, mentorship, and a 14-day money-back guarantee.";
+
 export const metadata: Metadata = {
   title: "Shopify Store Mastery — Stores, Freelancing & Digital Products",
-  description:
-    "Step-by-step training to build Shopify stores, land freelance clients, and sell digital products. Lifetime access, mentorship, and a 14-day money-back guarantee.",
+  description: COURSE_DESCRIPTION,
+  keywords: [
+    "Shopify course",
+    "Shopify store mastery",
+    "learn Shopify",
+    "e-commerce course",
+    "freelancing course",
+    "sell digital products",
+    "product hunting",
+    "Kashan Iqbal course",
+  ],
   alternates: { canonical: "/course" },
+  openGraph: {
+    type: "website",
+    url: "https://kashaniqbal.com/course",
+    siteName: "Kashan Iqbal",
+    title: "Shopify Store Mastery — Stores, Freelancing & Digital Products",
+    description: COURSE_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shopify Store Mastery — Stores, Freelancing & Digital Products",
+    description: COURSE_DESCRIPTION,
+  },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Course",
-  name: OFFER.name,
-  description:
-    "Step-by-step training to build Shopify stores, land freelance clients, and sell digital products.",
-  provider: {
-    "@type": "Person",
-    name: "Kashan Iqbal",
-    url: "https://kashaniqbal.com",
-  },
-  offers: {
-    "@type": "Offer",
-    price: OFFER.priceNow.replace("$", ""),
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://kashaniqbal.com/course#course",
+      name: OFFER.name,
+      description: COURSE_DESCRIPTION,
+      url: "https://kashaniqbal.com/course",
+      inLanguage: "en",
+      provider: {
+        "@type": "Person",
+        name: "Kashan Iqbal",
+        url: "https://kashaniqbal.com",
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "Online",
+        courseWorkload: "PT14H",
+        location: {
+          "@type": "VirtualLocation",
+          url: "https://kashaniqbal.com/course",
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        url: "https://kashaniqbal.com/course",
+        price: OFFER.priceNow.replace("$", ""),
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        category: "Paid",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kashaniqbal.com/course#breadcrumbs",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://kashaniqbal.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Shopify Store Mastery",
+          item: "https://kashaniqbal.com/course",
+        },
+      ],
+    },
+  ],
 };
 
 export default function CoursePage() {

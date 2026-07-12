@@ -4,7 +4,7 @@ import FlyingRobot from "@/components/three/FlyingRobot";
 import ThreadCanvas from "@/components/ThreadCanvas";
 import StickyCTA from "@/components/StickyCTA";
 import Guarantee from "@/components/sections/Guarantee";
-import { COURSES } from "@/lib/content";
+import { COURSES, FAQS } from "@/lib/content";
 import WhyKashan from "@/components/sections/WhyKashan";
 import ProofBento from "@/components/sections/ProofBento";
 import Manifesto from "@/components/sections/Manifesto";
@@ -65,9 +65,18 @@ const jsonLd = {
       "@id": "https://kashaniqbal.com/#person",
       name: "Kashan Iqbal",
       url: "https://kashaniqbal.com",
+      image: "https://kashaniqbal.com/portrait.png",
       jobTitle: "AI Engineer, Full-Stack Developer, Educator",
       description:
         "Helping developers and entrepreneurs build AI products, automate businesses, and create income online.",
+      knowsAbout: [
+        "AI Engineering",
+        "Full-Stack Development",
+        "Business Automation",
+        "Shopify & E-commerce",
+        "Freelancing",
+        "Digital Products",
+      ],
       sameAs: [
         "https://youtube.com/@kashaniqbal",
         "https://x.com/kashaniqbal",
@@ -81,6 +90,25 @@ const jsonLd = {
       url: "https://kashaniqbal.com",
       name: "Kashan Iqbal",
       publisher: { "@id": "https://kashaniqbal.com/#person" },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kashaniqbal.com/#webpage",
+      url: "https://kashaniqbal.com",
+      name: "Kashan Iqbal — AI Engineer · Full-Stack Developer · Educator",
+      isPartOf: { "@id": "https://kashaniqbal.com/#website" },
+      about: { "@id": "https://kashaniqbal.com/#person" },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kashaniqbal.com/#faq",
+      mainEntity: FAQS.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
     },
     {
       "@type": "ItemList",

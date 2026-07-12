@@ -21,7 +21,7 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        {/* silver auras */}
+        {/* violet & ice auras */}
         <div
           style={{
             position: "absolute",
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
             height: 700,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle, rgba(233,235,241,0.95) 0%, rgba(255,255,255,0) 65%)",
+              "radial-gradient(circle, rgba(206,199,250,0.55) 0%, rgba(255,255,255,0) 65%)",
           }}
         />
         <div
@@ -43,7 +43,7 @@ export default function OpengraphImage() {
             height: 760,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle, rgba(243,240,234,0.9) 0%, rgba(255,255,255,0) 65%)",
+              "radial-gradient(circle, rgba(143,208,245,0.4) 0%, rgba(255,255,255,0) 65%)",
           }}
         />
 
@@ -58,8 +58,9 @@ export default function OpengraphImage() {
             color: "#ffffff",
             fontSize: 44,
             fontWeight: 700,
-            background: "linear-gradient(160deg, #3a3b42 0%, #101013 70%)",
-            boxShadow: "0 24px 60px -20px rgba(20,20,30,0.45)",
+            background:
+              "linear-gradient(150deg, #8FD0F5 -30%, #7C6AF0 35%, #4F46E5 100%)",
+            boxShadow: "0 24px 60px -20px rgba(93,78,232,0.5)",
           }}
         >
           K
