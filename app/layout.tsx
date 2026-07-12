@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Kashan Iqbal — Build. Automate. Scale.",
     description:
       "AI products, automation, and income online — courses and tools from a builder still in the arena.",
-    creator: "@kashaniqbal",
+    creator: "@mkashaniqbaldev",
   },
   robots: {
     index: true,

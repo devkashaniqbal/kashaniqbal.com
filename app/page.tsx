@@ -78,10 +78,10 @@ const jsonLd = {
         "Digital Products",
       ],
       sameAs: [
-        "https://youtube.com/@kashaniqbal",
-        "https://x.com/kashaniqbal",
-        "https://github.com/kashaniqbal",
-        "https://linkedin.com/in/kashaniqbal",
+        "https://www.instagram.com/whynot.kashan",
+        "https://x.com/mkashaniqbaldev",
+        "https://www.linkedin.com/in/kashan-zafar-2b4909397",
+        "https://github.com/devkashaniqbal",
       ],
     },
     {

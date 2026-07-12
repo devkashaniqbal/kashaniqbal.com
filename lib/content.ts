@@ -370,8 +370,8 @@ export const FORK = {
 };
 
 export const SOCIALS = [
-  { label: "YouTube", href: "https://youtube.com/@kashaniqbal" },
-  { label: "X / Twitter", href: "https://x.com/kashaniqbal" },
-  { label: "GitHub", href: "https://github.com/kashaniqbal" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/kashaniqbal" },
+  { label: "Instagram", href: "https://www.instagram.com/whynot.kashan" },
+  { label: "X / Twitter", href: "https://x.com/mkashaniqbaldev" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/kashan-zafar-2b4909397" },
+  { label: "GitHub", href: "https://github.com/devkashaniqbal" },
 ];
