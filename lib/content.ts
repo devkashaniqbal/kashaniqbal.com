@@ -3,72 +3,6 @@
  * before launch without touching any component.
  */
 
-export type Course = {
-  index: string;
-  title: string;
-  tagline: string;
-  description: string;
-  duration: string;
-  lessons: number;
-  level: "Beginner" | "Intermediate" | "Advanced";
-  price: string;
-  status: "Enrolling" | "Waitlist";
-  /** Where the enroll CTA leads; defaults to #contact. */
-  href?: string;
-};
-
-export const COURSES: Course[] = [
-  {
-    index: "01",
-    title: "AI Engineering",
-    tagline: "From zero to shipped AI product.",
-    description:
-      "Design, build, and deploy production AI systems — RAG pipelines, agents, evals, and the engineering judgment nobody teaches. You leave with a live product, not a certificate.",
-    duration: "12 weeks",
-    lessons: 86,
-    level: "Intermediate",
-    price: "$499",
-    status: "Enrolling",
-  },
-  {
-    index: "02",
-    title: "Full-Stack Foundations",
-    tagline: "The stack behind every product I ship.",
-    description:
-      "Next.js, TypeScript, databases, auth, payments, deployment. One real SaaS built end-to-end, the way it's actually done — no toy apps, no tutorial hell.",
-    duration: "10 weeks",
-    lessons: 72,
-    level: "Beginner",
-    price: "$349",
-    status: "Enrolling",
-  },
-  {
-    index: "03",
-    title: "Automation Empire",
-    tagline: "Systems that earn while you sleep.",
-    description:
-      "Turn repetitive business operations into automated pipelines — lead gen, fulfilment, reporting, outreach. Built on tools your clients already pay for.",
-    duration: "8 weeks",
-    lessons: 54,
-    level: "Intermediate",
-    price: "$399",
-    status: "Waitlist",
-  },
-  {
-    index: "04",
-    title: "Shopify Store Mastery",
-    tagline: "Build stores that sell themselves.",
-    description:
-      "Store architecture, conversion design, and the automation layer that runs it hands-off. For freelancers who want $3k+ client projects and founders who want margin.",
-    duration: "6 weeks",
-    lessons: 48,
-    level: "Beginner",
-    price: "$299",
-    status: "Enrolling",
-    href: "/course",
-  },
-];
-
 export type Product = {
   name: string;
   kind: "Template" | "Prompt Pack" | "System" | "Starter Kit";
@@ -138,7 +72,7 @@ export const VIDEOS: Video[] = [
     views: "76K",
   },
   {
-    title: "The AI stack I'd learn in 2026",
+    title: "The AI stack I'd use in 2026",
     duration: "15:02",
     views: "215K",
   },
@@ -201,10 +135,10 @@ export type Stat = {
 };
 
 export const RESULTS: Stat[] = [
-  { value: 2400, suffix: "+", label: "students enrolled" },
-  { value: 38, label: "countries reached" },
-  { value: 4.9, decimals: 1, label: "average course rating" },
   { value: 12400, suffix: "+", label: "hours automated for clients" },
+  { value: 40000, suffix: "+", label: "monthly users across shipped products" },
+  { value: 6, suffix: "+", label: "years shipping in production" },
+  { value: 3, label: "digital products live" },
 ];
 
 export type Testimonial = {
@@ -217,26 +151,26 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "I'd done three bootcamps and still couldn't ship. Twelve weeks with Kashan and my AI product has paying users. The difference is he teaches judgment, not just syntax.",
+      "Kashan rebuilt our support triage in about two weeks. It's been running unattended for months and it's caught things our old process missed constantly.",
     name: "Sarah Mitchell",
     role: "Founder, ParseLabs",
     featured: true,
   },
   {
     quote:
-      "The automation course paid for itself before I finished it. One client retainer from module four covers my year.",
+      "He's the rare engineer who tells you when your idea is wrong before he starts building it. Saved us months.",
     name: "Daniel Okafor",
-    role: "Freelance Automation Consultant",
+    role: "Operations Lead, e-commerce brand",
   },
   {
     quote:
-      "Every lesson feels like watching a senior engineer think out loud. I stopped copying code and started understanding it.",
+      "The AgentKit boilerplate had guardrails and evals I hadn't even thought to ask for. Clearly built from having been burned before.",
     name: "Priya Raghavan",
     role: "Full-Stack Developer",
   },
   {
     quote:
-      "Storefront OS plus the Shopify course took my store from hobby to hands-off. I check dashboards now, not orders.",
+      "Storefront OS took our store from something we babysat daily to something we check once a week.",
     name: "Marcus Webb",
     role: "E-commerce Founder",
     featured: true,
@@ -256,117 +190,50 @@ export type FAQ = {
 
 export const FAQS: FAQ[] = [
   {
-    question: "I'm a complete beginner. Where do I start?",
+    question: "What do you actually work on?",
     answer:
-      "Full-Stack Foundations assumes nothing but curiosity. It takes you from your first component to a deployed SaaS. Once you're comfortable shipping, AI Engineering or Automation Empire is the natural next step.",
+      "AI systems, automation, and full-stack products — mostly for early-stage teams that need something built and shipped, not just prototyped. Everything on this site is something I've built myself or for a client.",
   },
   {
-    question: "How are these different from YouTube tutorials?",
+    question: "Are you available for freelance or consulting work?",
     answer:
-      "Tutorials show you what to type. These courses show you how to decide — architecture trade-offs, debugging under pressure, what to build and what to skip. Every course ends with a real product in production, reviewed with the cohort.",
+      "Selectively. I take on a small number of AI and automation engagements at a time. Reach out through the contact section and tell me what you're building.",
   },
   {
-    question: "Do I get lifetime access?",
+    question: "Do the digital products come with support?",
     answer:
-      "Yes. Every course and product includes lifetime access, all future updates, and any new lessons added to that course — no subscriptions, no expiry.",
+      "Yes — every product includes lifetime updates and direct access to me if something breaks or you get stuck integrating it.",
   },
   {
-    question: "What if a course isn't right for me?",
+    question: "Can I read about what you're building?",
     answer:
-      "Every course carries a 14-day, no-questions refund. Finish two modules, and if it isn't worth multiples of what you paid, email me and you get it back.",
+      "That's what the writing section is for — build logs, postmortems, and notes on whatever shipped or broke recently. No content calendar, just what's actually happening.",
   },
   {
-    question: "Is there a community?",
+    question: "What's the best way to reach you?",
     answer:
-      "Every enrollment includes access to the private community — weekly build sessions, code reviews, job and client leads, and direct access to me and the alumni network.",
-  },
-  {
-    question: "Do you offer consulting or custom work?",
-    answer:
-      "Selectively. I take a small number of AI and automation engagements each quarter. Book a call through the contact section and tell me what you're building.",
+      "Email, or any of the socials linked in the footer. I read everything myself.",
   },
 ];
 
-export const MENTOR = {
+export const ABOUT = {
   name: "Kashan Iqbal",
-  title: "AI Engineer · Full-Stack Developer · Educator",
+  title: "AI Engineer · Full-Stack Developer",
   /** Drop your portrait into /public (e.g. /portrait.jpg) and set the
    *  path here — the placeholder plate swaps out automatically. */
   portrait: "/portrait.png" as string | null,
-  line: "You don't just get lessons. You get a mentor who is still in the arena — and a community building beside you.",
+  line: "I build AI products, automation systems, and full-stack apps — and write about what actually happens when they go into production.",
   inclusions: [
-    "Direct access — questions answered within a day",
-    "Private builders' community, lifetime",
-    "Weekly live build sessions",
-    "Code reviews on your real projects",
+    "Direct access — I answer my own email",
+    "Open-source work on GitHub",
+    "Build logs and postmortems, written weekly-ish",
+    "Selective freelance & consulting availability",
   ],
   stats: [
-    { value: "2,400+", label: "students mentored" },
     { value: "6+ yrs", label: "shipping in production" },
-    { value: "Lifetime", label: "access & support" },
+    { value: "3", label: "products live" },
+    { value: "40K+", label: "monthly users across projects" },
   ],
-};
-
-export type Bonus = {
-  name: string;
-  detail: string;
-  value: string;
-};
-
-export const BONUSES: Bonus[] = [
-  {
-    name: "Weekly live build sessions",
-    detail: "Two hours, every week — build along, ask anything",
-    value: "$499",
-  },
-  {
-    name: "Project & code reviews",
-    detail: "Your real work, reviewed line by line",
-    value: "$299",
-  },
-  {
-    name: "The Prompt Vault",
-    detail: "All 1,200 engineered prompts, full library",
-    value: "$49",
-  },
-  {
-    name: "Velocity SaaS template",
-    detail: "The production starter behind my own products",
-    value: "$129",
-  },
-  {
-    name: "Shopify launch kit",
-    detail: "Store audit checklist and automation presets",
-    value: "$99",
-  },
-  {
-    name: "Builders' community, lifetime",
-    detail: "Leads, hiring calls, and accountability that lasts",
-    value: "$199",
-  },
-];
-
-export const BONUS_TOTAL = "$1,274";
-
-export const FORK = {
-  alone: {
-    label: "Keep going alone",
-    points: [
-      "Collect another folder of tutorials",
-      "Guess what to build — and what to skip",
-      "Debug at 2 a.m. with nobody to ask",
-      "Watch others ship while you research",
-    ],
-  },
-  together: {
-    label: "Build with Kashan",
-    points: [
-      "A proven path from skill to income",
-      "Direct answers the moment you're stuck",
-      "A community shipping right beside you",
-      "Lifetime updates as the stack evolves",
-    ],
-  },
 };
 
 export const SOCIALS = [
@@ -374,4 +241,7 @@ export const SOCIALS = [
   { label: "X / Twitter", href: "https://x.com/mkashaniqbaldev" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/kashan-zafar-2b4909397" },
   { label: "GitHub", href: "https://github.com/devkashaniqbal" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61589595670215" },
+  { label: "Medium", href: "https://medium.com/@kashaniqbal" },
+  { label: "YouTube", href: "https://www.youtube.com/@devkashaniqbal" },
 ];

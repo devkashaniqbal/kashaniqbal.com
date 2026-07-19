@@ -15,11 +15,10 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const LINKS = [
   { label: "Home", href: "#" },
-  { label: "Courses", href: "#courses" },
-  { label: "Digital Products", href: "#products" },
-  { label: "Projects", href: "#projects" },
-  { label: "Videos", href: "#videos" },
   { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Writing", href: "/blog" },
+  { label: "Digital Products", href: "#products" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -39,7 +38,7 @@ function NavLink({ label, href }: { label: string; href: string }) {
 function CTAButton({ compact = false }: { compact?: boolean }) {
   return (
     <motion.a
-      href="#courses"
+      href="#contact"
       className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 font-medium text-white"
       style={{
         height: compact ? 44 : 40,
@@ -61,7 +60,7 @@ function CTAButton({ compact = false }: { compact?: boolean }) {
         aria-hidden
         className="pointer-events-none absolute inset-0 -translate-x-[130%] bg-[linear-gradient(105deg,transparent_35%,rgba(255,255,255,0.22)_50%,transparent_65%)] transition-transform duration-700 ease-out group-hover:translate-x-[130%]"
       />
-      Start Learning
+      Get In Touch
     </motion.a>
   );
 }

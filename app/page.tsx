@@ -2,23 +2,20 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FlyingRobot from "@/components/three/FlyingRobot";
 import ThreadCanvas from "@/components/ThreadCanvas";
-import StickyCTA from "@/components/StickyCTA";
-import Guarantee from "@/components/sections/Guarantee";
-import { COURSES, FAQS } from "@/lib/content";
+import { FAQS, PRODUCTS } from "@/lib/content";
 import WhyKashan from "@/components/sections/WhyKashan";
 import ProofBento from "@/components/sections/ProofBento";
 import Manifesto from "@/components/sections/Manifesto";
-import Courses from "@/components/sections/Courses";
-import Bonuses from "@/components/sections/Bonuses";
-import Fork from "@/components/sections/Fork";
-import Products from "@/components/sections/Products";
+import DigitalProducts from "@/components/sections/DigitalProducts";
 import Videos from "@/components/sections/Videos";
+import Writing from "@/components/sections/Writing";
 import CaseStudies from "@/components/sections/CaseStudies";
 import DarkAct from "@/components/sections/DarkAct";
 import Community from "@/components/sections/Community";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
+import { getGalleryImages } from "@/lib/gallery";
 
 export default function Home() {
   return (
@@ -31,24 +28,20 @@ export default function Home() {
         <ThreadCanvas>
           <WhyKashan />
           <ProofBento />
-          <Manifesto />
-          <Courses />
-          <Bonuses />
-          <Products />
-          <Videos />
           <CaseStudies />
-          <DarkAct />
+          <Manifesto />
+          <Writing />
+          <Videos />
           <Community />
+          <DigitalProducts />
+          <DarkAct />
           <FAQ />
-          <Fork />
-          <Guarantee />
           <FinalCTA />
         </ThreadCanvas>
       </main>
       <div className="sticky bottom-0 z-0">
         <Footer />
       </div>
-      <StickyCTA />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -56,6 +49,8 @@ export default function Home() {
     </>
   );
 }
+
+const galleryImages = getGalleryImages();
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -65,16 +60,18 @@ const jsonLd = {
       "@id": "https://kashaniqbal.com/#person",
       name: "Kashan Iqbal",
       url: "https://kashaniqbal.com",
-      image: "https://kashaniqbal.com/portrait.png",
-      jobTitle: "AI Engineer, Full-Stack Developer, Educator",
+      image: [
+        "https://kashaniqbal.com/portrait.png",
+        ...galleryImages.map((img) => `https://kashaniqbal.com${img.src}`),
+      ],
+      jobTitle: "AI Engineer, Full-Stack Developer",
       description:
-        "Helping developers and entrepreneurs build AI products, automate businesses, and create income online.",
+        "AI engineer and full-stack developer building AI products, automation systems, and Shopify stores.",
       knowsAbout: [
         "AI Engineering",
         "Full-Stack Development",
         "Business Automation",
         "Shopify & E-commerce",
-        "Freelancing",
         "Digital Products",
       ],
       sameAs: [
@@ -82,6 +79,9 @@ const jsonLd = {
         "https://x.com/mkashaniqbaldev",
         "https://www.linkedin.com/in/kashan-zafar-2b4909397",
         "https://github.com/devkashaniqbal",
+        "https://www.facebook.com/profile.php?id=61589595670215",
+        "https://medium.com/@kashaniqbal",
+        "https://www.youtube.com/@devkashaniqbal",
       ],
     },
     {
@@ -96,7 +96,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": "https://kashaniqbal.com/#webpage",
       url: "https://kashaniqbal.com",
-      name: "Kashan Iqbal — AI Engineer · Full-Stack Developer · Educator",
+      name: "Kashan Iqbal — AI Engineer · Full-Stack Developer",
       isPartOf: { "@id": "https://kashaniqbal.com/#website" },
       about: { "@id": "https://kashaniqbal.com/#person" },
       inLanguage: "en-US",
@@ -112,26 +112,40 @@ const jsonLd = {
     },
     {
       "@type": "ItemList",
-      name: "Courses by Kashan Iqbal",
-      itemListElement: COURSES.map((course, i) => ({
+      name: "Digital products by Kashan Iqbal",
+      itemListElement: PRODUCTS.map((product, i) => ({
         "@type": "ListItem",
         position: i + 1,
         item: {
-          "@type": "Course",
-          name: course.title,
-          description: course.description,
-          provider: { "@id": "https://kashaniqbal.com/#person" },
+          "@type": "Product",
+          name: product.name,
+          description: product.line,
+          category: product.kind,
           offers: {
             "@type": "Offer",
-            price: course.price.replace("$", ""),
+            price: product.price.replace("$", ""),
             priceCurrency: "USD",
-            availability:
-              course.status === "Enrolling"
-                ? "https://schema.org/InStock"
-                : "https://schema.org/PreOrder",
+            availability: "https://schema.org/InStock",
           },
         },
       })),
     },
+    ...(galleryImages.length > 0
+      ? [
+          {
+            "@type": "ImageGallery",
+            "@id": "https://kashaniqbal.com/#gallery",
+            name: "Kashan Iqbal — behind the build",
+            about: { "@id": "https://kashaniqbal.com/#person" },
+            image: galleryImages.map((img) => ({
+              "@type": "ImageObject",
+              contentUrl: `https://kashaniqbal.com${img.src}`,
+              url: `https://kashaniqbal.com${img.src}`,
+              name: img.alt,
+              description: img.alt,
+            })),
+          },
+        ]
+      : []),
   ],
 };

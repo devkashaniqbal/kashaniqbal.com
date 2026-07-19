@@ -151,13 +151,13 @@ export default function DarkAct() {
         <div className="relative px-7 py-20 sm:px-14 sm:py-24 lg:px-24 lg:py-32">
           {/* ——— 06 · results ——— */}
           <SectionIntro
-            number="07"
-            eyebrow="Student results"
+            number="08"
+            eyebrow="Track record"
             title={
               <>
-                Numbers I&rsquo;d put
+                Results
                 <br />
-                <span className="text-white/40">my name on.</span>
+                <span className="text-white/40">so far.</span>
               </>
             }
             dark
@@ -188,7 +188,7 @@ export default function DarkAct() {
           {/* ——— 07 · testimonials ——— */}
           <div className="mt-28 lg:mt-40">
             <SectionIntro
-              number="08"
+              number="09"
               eyebrow="Testimonials"
               title={
                 <>

@@ -189,8 +189,8 @@ function Storefront() {
       </div>
       <p className="mt-5 text-[13.5px] leading-relaxed text-ink-soft">
         Digital products{" "}
-        <span className="font-medium text-ink">sell without you</span> &mdash;
-        build once, wake up to receipts.
+        <span className="font-medium text-ink">keep selling on their own</span>{" "}
+        &mdash; build once, get paid automatically.
       </p>
     </div>
   );

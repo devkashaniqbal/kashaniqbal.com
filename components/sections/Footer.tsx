@@ -6,9 +6,9 @@ import { CONTAINER, EASE } from "./shared";
 
 const COLUMNS = [
   {
-    title: "Learn",
+    title: "Explore",
     links: [
-      { label: "Courses", href: "#courses" },
+      { label: "Writing", href: "/blog" },
       { label: "Video Library", href: "#videos" },
       { label: "Community", href: "#community" },
       { label: "FAQ", href: "#faq" },
@@ -55,8 +55,9 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-[30ch] text-[13.5px] leading-relaxed text-ink-soft">
-              AI engineer, educator, and builder — teaching developers and
-              entrepreneurs to ship products that earn.
+              AI engineer and full-stack developer — building AI products,
+              automation systems, and writing about what happens when they
+              ship.
             </p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
               {SOCIALS.map((s) => (

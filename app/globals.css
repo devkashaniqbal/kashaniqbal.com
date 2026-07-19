@@ -295,23 +295,6 @@ body {
   }
 }
 
-/* ————— /course funnel: ticker marquee ————— */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee 36s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .aurora-a,
   .aurora-b,

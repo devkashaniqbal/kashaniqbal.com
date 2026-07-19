@@ -14,7 +14,7 @@ export default function Community() {
       <div className={CONTAINER}>
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
           <SectionIntro
-            number="09"
+            number="05"
             eyebrow="Community & newsletter"
             title={
               <>

@@ -11,11 +11,11 @@ import {
 import { CONTAINER } from "./shared";
 
 const STATEMENT =
-  "Most people collect tutorials. Builders collect results. I teach the difference — one shipped product at a time.";
+  "Most tutorials teach you to copy. I teach you to ship — one real product at a time.";
 
 const WORDS = STATEMENT.split(" ");
 
-/** "shipped product" lights up in the brand gradient. */
+/** "real product" lights up in the brand gradient. */
 const HIGHLIGHT = new Set([13, 14]);
 
 function Word({

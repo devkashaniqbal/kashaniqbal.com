@@ -91,9 +91,9 @@ export default function FinalCTA() {
             className="max-w-[14ch] font-semibold leading-[1.02] tracking-[-0.04em] text-white"
             style={{ fontSize: "clamp(2.6rem, 6.4vw, 5.4rem)" }}
           >
-            The next builder
+            Ready when
             <br />
-            <span className="metal-text-dark">could be you.</span>
+            <span className="metal-text-dark">you are.</span>
           </motion.h2>
 
           <motion.p
@@ -103,8 +103,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.38 }}
             className="mt-8 max-w-[44ch] text-[16.5px] leading-relaxed text-white/55"
           >
-            Start with a course, a product, or a conversation. Whichever door
-            you choose, you leave building.
+            Grab a product, read what I&rsquo;m building, or just get in touch.
           </motion.p>
 
           <motion.div
@@ -115,7 +114,7 @@ export default function FinalCTA() {
             className="mt-11 flex flex-wrap items-center justify-center gap-4"
           >
             <motion.a
-              href="#courses"
+              href="#products"
               className="group relative inline-flex h-[52px] items-center overflow-hidden rounded-full px-8 text-[15px] font-medium text-white"
               style={{
                 background: "linear-gradient(135deg, #7C6AF0 0%, #4F46E5 100%)",
@@ -134,7 +133,7 @@ export default function FinalCTA() {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -translate-x-[130%] bg-[linear-gradient(105deg,transparent_35%,rgba(255,255,255,0.25)_50%,transparent_65%)] transition-transform duration-700 ease-out group-hover:translate-x-[130%]"
               />
-              Start Learning
+              View Products
             </motion.a>
             <motion.a
               href="mailto:hello@kashaniqbal.com"
@@ -143,7 +142,7 @@ export default function FinalCTA() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 26 }}
             >
-              Book a consult
+              Get In Touch
             </motion.a>
           </motion.div>
         </div>

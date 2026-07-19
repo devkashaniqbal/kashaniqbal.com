@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MENTOR } from "@/lib/content";
+import { ABOUT } from "@/lib/content";
 import Icon from "@/components/Icon";
 import { CONTAINER, EASE, Reveal, SectionIntro } from "./shared";
 
@@ -23,8 +23,8 @@ const DISCIPLINES = [
     icon: "bolt",
   },
   {
-    field: "Education",
-    proof: "Thousands of developers taught to think like builders, not typists.",
+    field: "Writing",
+    proof: "Build logs and postmortems on what shipped, and what broke.",
     icon: "book",
   },
 ];
@@ -37,15 +37,12 @@ export default function WhyKashan() {
       <div className={CONTAINER}>
         <SectionIntro
           number="01"
-          eyebrow="Why learn from Kashan"
+          eyebrow="About"
           title={
             <>
-              I don&rsquo;t teach theory.
+              I build things,
               <br />
-              I teach what I{" "}
-              <span className="text-[#9a9da6]">
-                shipped last&nbsp;week.
-              </span>
+              <span className="text-[#9a9da6]">then write about it.</span>
             </>
           }
         />
@@ -55,24 +52,22 @@ export default function WhyKashan() {
           <div className="max-w-[46ch]">
             <Reveal>
               <p className="text-[17px] leading-[1.75] text-ink-soft">
-                Most courses are taught by people who stopped building the day
-                they started teaching. Everything on this site comes from
-                products that are live right now — AI platforms with real
-                users, automations running real businesses, stores processing
-                real orders.
+                I&rsquo;m an AI engineer and full-stack developer. Everything
+                on this site comes from products that are live right now —
+                AI platforms with real users, automations running real
+                businesses, stores processing real orders.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 text-[17px] leading-[1.75] text-ink-soft">
-                When you learn here, you&rsquo;re not memorizing a stack.
-                You&rsquo;re borrowing the judgment of someone still in the
-                arena — what to build, what to skip, and how to turn skill
-                into income.
+                I take on a small number of freelance and consulting
+                engagements, build my own products on the side, and write
+                about whatever shipped or broke that week.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.28em] text-[#9a9da6]">
-                Builder first · Teacher second
+                Builder, not a brand
               </p>
             </Reveal>
           </div>
@@ -126,7 +121,7 @@ export default function WhyKashan() {
         {/* ——— the mentor ——— */}
         <div className="mt-24 grid grid-cols-1 items-center gap-14 lg:mt-32 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           {/* portrait plate — an elegant placeholder until the real
-              portrait lands in /public and MENTOR.portrait is set */}
+              portrait lands in /public and ABOUT.portrait is set */}
           <Reveal>
             <div
               className="relative mx-auto aspect-[4/5] w-full max-w-[400px] overflow-hidden rounded-[28px] border border-hairline"
@@ -137,10 +132,10 @@ export default function WhyKashan() {
                   "0 1px 2px rgba(20,20,30,0.04), 0 24px 60px -28px rgba(20,20,30,0.14)",
               }}
             >
-              {MENTOR.portrait ? (
+              {ABOUT.portrait ? (
                 <Image
-                  src={MENTOR.portrait}
-                  alt={`Portrait of ${MENTOR.name}`}
+                  src="/gallery/kashan-iqbal-editorial-portrait.jpg"
+                  alt={`Portrait of ${ABOUT.name}`}
                   fill
                   sizes="(max-width: 1024px) 90vw, 400px"
                   className="object-cover"
@@ -169,7 +164,7 @@ export default function WhyKashan() {
                       K
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b3b6be]">
-                      {MENTOR.name}
+                      {ABOUT.name}
                     </span>
                   </div>
                 </div>
@@ -177,10 +172,10 @@ export default function WhyKashan() {
               {/* caption bar */}
               <div className="absolute inset-x-0 bottom-0 border-t border-white/60 bg-white/70 px-6 py-4 backdrop-blur-md">
                 <p className="text-[15px] font-semibold tracking-tight text-ink">
-                  {MENTOR.name}
+                  {ABOUT.name}
                 </p>
                 <p className="mt-0.5 font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#9a9da6]">
-                  {MENTOR.title}
+                  {ABOUT.title}
                 </p>
               </div>
             </div>
@@ -189,18 +184,18 @@ export default function WhyKashan() {
           <div>
             <Reveal>
               <p className="max-w-[40ch] text-[19px] font-medium leading-[1.55] tracking-tight text-ink">
-                {MENTOR.line}
+                {ABOUT.line}
               </p>
             </Reveal>
 
             <Reveal delay={0.12}>
               <p className="mt-10 font-mono text-[10.5px] uppercase tracking-[0.26em] text-[#9a9da6]">
-                Included with every enrollment
+                How I work
               </p>
             </Reveal>
 
             <div className="mt-5">
-              {MENTOR.inclusions.map((item, i) => (
+              {ABOUT.inclusions.map((item, i) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, x: -14 }}
@@ -227,7 +222,7 @@ export default function WhyKashan() {
             </div>
 
             <div className="mt-9 flex flex-wrap gap-x-12 gap-y-6">
-              {MENTOR.stats.map((s, i) => (
+              {ABOUT.stats.map((s, i) => (
                 <motion.div
                   key={s.label}
                   initial={{ opacity: 0, y: 14 }}
@@ -246,6 +241,25 @@ export default function WhyKashan() {
             </div>
           </div>
         </div>
+
+        {/* ——— banner ——— */}
+        <Reveal className="mt-14 lg:mt-20">
+          <div
+            className="relative aspect-[4/1] w-full overflow-hidden rounded-[22px] border border-hairline"
+            style={{
+              boxShadow:
+                "0 1px 2px rgba(20,20,30,0.04), 0 20px 50px -28px rgba(20,20,30,0.14)",
+            }}
+          >
+            <Image
+              src="/gallery/kashan-iqbal-banner.png"
+              alt={`${ABOUT.name} — turning ideas into reality: AI, Blockchain, SaaS`}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

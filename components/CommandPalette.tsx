@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { COURSES, SOCIALS } from "@/lib/content";
+import { SOCIALS } from "@/lib/content";
 import { scrollToTarget } from "@/components/LenisProvider";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -28,22 +28,14 @@ export default function CommandPalette() {
   const commands = useMemo<Command[]>(
     () => [
       { group: "Navigate", label: "Home", run: () => scrollToTarget(0) },
-      { group: "Navigate", label: "Why Kashan", keywords: "about mentor", run: () => goTo("#about") },
-      { group: "Navigate", label: "Courses", keywords: "learn enroll", run: () => goTo("#courses") },
-      { group: "Navigate", label: "The Vault", keywords: "bonuses included free", run: () => goTo("#bonuses") },
+      { group: "Navigate", label: "About", keywords: "who is kashan", run: () => goTo("#about") },
       { group: "Navigate", label: "Digital Products", keywords: "templates prompts", run: () => goTo("#products") },
       { group: "Navigate", label: "Video Library", keywords: "youtube watch", run: () => goTo("#videos") },
+      { group: "Navigate", label: "Writing", keywords: "blog posts", run: () => window.location.assign("/blog") },
       { group: "Navigate", label: "Projects & Case Studies", keywords: "work portfolio", run: () => goTo("#projects") },
       { group: "Navigate", label: "Community & Newsletter", keywords: "subscribe sunday", run: () => goTo("#community") },
-      { group: "Navigate", label: "FAQ", keywords: "questions refund", run: () => goTo("#faq") },
+      { group: "Navigate", label: "FAQ", keywords: "questions", run: () => goTo("#faq") },
       { group: "Navigate", label: "Contact", keywords: "consult book call", run: () => goTo("#contact") },
-      ...COURSES.map((c) => ({
-        group: "Courses",
-        label: c.title,
-        hint: c.price,
-        keywords: c.tagline,
-        run: () => goTo("#courses"),
-      })),
       ...SOCIALS.map((s) => ({
         group: "Elsewhere",
         label: s.label,
@@ -151,8 +143,8 @@ export default function CommandPalette() {
             <div className="max-h-[46vh] overflow-y-auto py-2">
               {results.length === 0 && (
                 <p className="px-5 py-6 text-[13.5px] text-ink-soft">
-                  Nothing matches &ldquo;{query}&rdquo; — try a section or
-                  course name.
+                  Nothing matches &ldquo;{query}&rdquo; — try a section
+                  name.
                 </p>
               )}
               {results.map((cmd, i) => {

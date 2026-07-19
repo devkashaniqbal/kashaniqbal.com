@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Kashan Iqbal — AI Engineer, Full-Stack Developer, Educator";
+export const alt = "Kashan Iqbal — AI Engineer, Full-Stack Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -86,7 +85,7 @@ export default function OpengraphImage() {
             display: "flex",
           }}
         >
-          Kashan Iqbal — AI Engineer · Full-Stack Developer · Educator
+          Kashan Iqbal — AI Engineer · Full-Stack Developer
         </div>
         <div
           style={{

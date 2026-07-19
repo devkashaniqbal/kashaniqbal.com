@@ -22,26 +22,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kashaniqbal.com"),
   title: {
-    default: "Kashan Iqbal — AI Engineer · Full-Stack Developer · Educator",
+    default: "Kashan Iqbal — AI Engineer · Full-Stack Developer",
     template: "%s — Kashan Iqbal",
   },
   description:
-    "Helping developers and entrepreneurs build AI products, automate businesses, and create income online. Courses, digital products, and systems from someone still shipping.",
+    "AI engineer and full-stack developer building AI products, automation systems, and Shopify stores. Projects, digital products, and writing from someone still shipping.",
   applicationName: "Kashan Iqbal",
-  category: "education",
+  category: "technology",
   keywords: [
     "Kashan Iqbal",
-    "AI engineering course",
-    "learn AI engineering",
-    "full-stack development course",
+    "AI engineer",
+    "full-stack developer",
     "automation systems",
     "n8n automation",
-    "Shopify course",
-    "Shopify store mastery",
-    "freelancing course",
-    "sell digital products",
+    "Shopify development",
     "digital products for developers",
-    "make money online with code",
     "AI engineer Pakistan",
   ],
   authors: [{ name: "Kashan Iqbal", url: "https://kashaniqbal.com" }],
@@ -55,14 +50,14 @@ export const metadata: Metadata = {
     siteName: "Kashan Iqbal",
     title: "Kashan Iqbal — Build. Automate. Scale.",
     description:
-      "AI products, automation, and income online — courses and tools from a builder still in the arena.",
+      "AI products, automation systems, and digital tools from an engineer who's still shipping.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kashan Iqbal — Build. Automate. Scale.",
     description:
-      "AI products, automation, and income online — courses and tools from a builder still in the arena.",
+      "AI products, automation systems, and digital tools from an engineer who's still shipping.",
     creator: "@mkashaniqbaldev",
   },
   robots: {
@@ -76,8 +71,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  // Add your Google Search Console token here once you claim the domain:
-  // verification: { google: "..." },
+  verification: {
+    google: "QbQHej7YKNXjqmMTnwGze-qcLpxLdXepBSOCKNuP3e0",
+  },
 };
 
 export const viewport: Viewport = {

@@ -84,13 +84,13 @@ export default function CaseStudies() {
     <section id="projects" className="scroll-mt-28 bg-[#F1F2FE] py-28 lg:py-40">
       <div className={CONTAINER}>
         <SectionIntro
-          number="06"
+          number="02"
           eyebrow="Projects & case studies"
           title={
             <>
-              The proof is
+              Projects
               <br />
-              <span className="text-[#9a9da6]">in production.</span>
+              <span className="text-[#9a9da6]">I&rsquo;ve shipped.</span>
             </>
           }
         />

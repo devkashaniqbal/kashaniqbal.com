@@ -204,7 +204,7 @@ export default function FlyingRobot() {
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 8], fov: 35 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        style={{ background: "transparent" }}
+        style={{ background: "transparent", pointerEvents: "none" }}
       >
         <ambientLight intensity={0.5} />
         <Environment resolution={128} frames={1}>

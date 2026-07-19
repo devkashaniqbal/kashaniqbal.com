@@ -31,7 +31,7 @@ export default function Videos() {
       <div className={CONTAINER}>
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionIntro
-            number="05"
+            number="04"
             eyebrow="Video library"
             title={
               <>
@@ -42,7 +42,7 @@ export default function Videos() {
             }
           />
           <motion.a
-            href="https://youtube.com/@kashaniqbal"
+            href="https://www.youtube.com/@devkashaniqbal"
             target="_blank"
             rel="noreferrer"
             initial={{ opacity: 0, y: 14 }}
@@ -76,7 +76,7 @@ export default function Videos() {
           {VIDEOS.map((v, i) => (
             <a
               key={v.title}
-              href="https://youtube.com/@kashaniqbal"
+              href="https://www.youtube.com/@devkashaniqbal"
               target="_blank"
               rel="noreferrer"
               data-cursor="Play"
@@ -135,7 +135,7 @@ export default function Videos() {
 
           {/* terminal plate — quiet invitation */}
           <a
-            href="https://youtube.com/@kashaniqbal"
+            href="https://www.youtube.com/@devkashaniqbal"
             target="_blank"
             rel="noreferrer"
             className="group relative flex aspect-video w-[60vw] max-w-[320px] shrink-0 snap-start items-center justify-center rounded-[20px] border border-hairline transition-colors duration-500 hover:border-[#d5d7dc]"

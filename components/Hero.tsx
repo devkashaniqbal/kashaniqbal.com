@@ -7,12 +7,12 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { MENTOR } from "@/lib/content";
+import { ABOUT } from "@/lib/content";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const STATS = [
-  { value: "+2,400", label: "Students trained" },
+  { value: "+40K", label: "Users across shipped products" },
   { value: "+12,400", label: "Hours automated" },
 ];
 
@@ -53,7 +53,7 @@ function GhostButton() {
 function PrimaryButton() {
   return (
     <motion.a
-      href="#courses"
+      href="#projects"
       className="group relative inline-flex h-[52px] items-center gap-2.5 overflow-hidden rounded-full px-8 text-[15px] font-medium text-white"
       style={{
         background: "linear-gradient(135deg, #7C6AF0 0%, #4F46E5 100%)",
@@ -72,7 +72,7 @@ function PrimaryButton() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -translate-x-[130%] bg-[linear-gradient(105deg,transparent_35%,rgba(255,255,255,0.2)_50%,transparent_65%)] transition-transform duration-700 ease-out group-hover:translate-x-[130%]"
       />
-      Explore Courses
+      See My Work
       <span
         aria-hidden
         className="transition-transform duration-300 ease-out group-hover:translate-x-1"
@@ -83,11 +83,15 @@ function PrimaryButton() {
   );
 }
 
+/** The hero portrait — fixed to /portrait.png, independent of the
+ *  mentor-section photo (which can change without touching the hero). */
+const HERO_PORTRAIT = "/portrait.png";
+
 /** The portrait — real photo when provided, a lit placeholder until. */
 function Portrait() {
   return (
     <div className="relative h-full w-full">
-      {MENTOR.portrait ? (
+      {HERO_PORTRAIT ? (
         <>
           {/* backdrop glow so the cutout sits in light, not in a void */}
           <div
@@ -99,8 +103,8 @@ function Portrait() {
             }}
           />
           <Image
-            src={MENTOR.portrait}
-            alt={`Portrait of ${MENTOR.name}`}
+            src={HERO_PORTRAIT}
+            alt={`Portrait of ${ABOUT.name}`}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -123,7 +127,7 @@ function Portrait() {
       ) : (
         <div aria-hidden className="absolute inset-0">
           {/* placeholder — swap by dropping /public/portrait.jpg and
-              setting MENTOR.portrait in lib/content.ts */}
+              setting ABOUT.portrait in lib/content.ts */}
           <div
             className="absolute inset-0"
             style={{
@@ -245,7 +249,7 @@ export default function Hero() {
             aria-hidden
             className="absolute left-7 top-16 z-20 hidden origin-top-left rotate-90 font-mono text-[9px] uppercase tracking-[0.34em] text-[#b3b6be] lg:block"
           >
-            AI Engineer · Educator
+AI Engineer · Full-Stack Developer
           </span>
           <span
             aria-hidden
@@ -300,8 +304,8 @@ export default function Hero() {
                 className="mt-6 max-w-[42ch] text-[17px] leading-relaxed text-ink-soft"
               >
                 <span className="text-ink">— It&rsquo;s Kashan Iqbal,</span> an
-                AI engineer and educator helping developers and entrepreneurs
-                build products, automate businesses, and earn online.
+                AI engineer and full-stack developer building AI products,
+                automation systems, and the occasional Shopify store.
               </motion.p>
 
               <motion.div

@@ -1,6 +1,6 @@
 # kashaniqbal.com
 
-Personal brand site for Kashan Iqbal — AI Engineer · Full-Stack Developer · Educator.
+Personal brand site for Kashan Iqbal — AI Engineer · Full-Stack Developer.
 
 Built with Next.js 15, React 19, Tailwind CSS v4, Framer Motion, Lenis, and React Three Fiber.
 
@@ -15,5 +15,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Pages
 
-- `/` — homepage (courses, products, videos, case studies, community)
-- `/course` — Shopify Store Mastery course funnel
+- `/` — homepage (about, projects, writing, videos, digital products, community)
+- `/blog` — writing index
+- `/blog/[slug]` — individual posts
